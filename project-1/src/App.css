@@ -1,0 +1,68 @@
+* {
+  margin: auto;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+nav {
+  display: flex;
+  max-width: 1280px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;   /*so that spacing is correct*/
+  height: 72px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+button {
+  all: unset;
+  padding: 6px 16px;
+  background-color: red;
+  height: 32px;
+  color: white;
+  font-weight: 500;
+}
+
+.cat {
+  all: unset;
+  padding: 6px 16px;
+  height: 32px;
+  color: gray;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid gray;
+  font-weight: 450;
+}
+
+.hero-btn {
+  display: flex;
+  gap: 34px;
+}
+
+.hero-main {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1280px;
+  align-items: center;
+  height: calc(100vh - 72px);
+}
+
+.hero-content h1 {
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 102px;
+}
+
+.hero-content p {
+  padding-bottom: 24px;
+  padding-top: 12px;
+  font-weight: 600;
+  color: gray;
+}

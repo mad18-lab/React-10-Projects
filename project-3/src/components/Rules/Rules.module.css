@@ -1,0 +1,14 @@
+.main {
+    height: 294px;
+    width: 800px;
+    background-color: #FBF1F1;
+}
+
+.list {
+    list-style-type: circle;
+}
+
+.head {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
