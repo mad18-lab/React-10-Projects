@@ -1,50 +1,5 @@
-.pl {
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
-.pl1 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 250px;
-    max-height: 250px;
-    margin: 0 auto;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    max-width: 220px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    gap: 8px;
-}
-
 .line {
     width: 1280px;
     color: black;
     border: 1.5px solid rgb(200, 200, 200);
-}
-
-.butt {
-    background-color: black;
-    color: white;
-    width: 220px;
-    height: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: 1px solid transparent;
-    cursor: pointer;
-
-    &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-    }
 }

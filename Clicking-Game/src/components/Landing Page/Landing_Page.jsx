@@ -1,6 +1,6 @@
 import styles from './Landing-Page.module.css';
-import { useState } from 'react';
-// import React from 'react'
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,10 +8,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from '@mui/material';
-import HomePage from '../HomePage/HomePage';
+import { PlayerContext } from '../../context/PlayerContext';
 
-const Landing_Page = ({toggle}) => {
+const Landing_Page = () => {
   const [open, setOpen] = useState(false);
+  const [player1, setPlayer1] = useState('');
+  const [player2, setPlayer2] = useState('');
+  const { setPlayerNames } = useContext(PlayerContext);
+  const navigateTo = useNavigate();
 
   const setClickOpen = () => {
     setOpen(true);
@@ -19,6 +23,14 @@ const Landing_Page = ({toggle}) => {
 
   const setClickClose = () => {
     setOpen(false);
+  }
+
+  const setSubmit = (event) => {
+    event.preventDefault();
+    setPlayerNames({ player1, player2 });   //set player names in context
+    localStorage.setItem("Player 1 Name: ", JSON.stringify(player1));
+    localStorage.setItem("Player 2 Name: ", JSON.stringify(player2));
+    navigateTo('/home');
   }
 
   return (
@@ -38,10 +50,7 @@ const Landing_Page = ({toggle}) => {
         onClose={setClickClose}
         PaperProps={{
           component: 'form',
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-          },
+          onSubmit: setSubmit,
         }}
         >
           <DialogTitle> Enter Player Names </DialogTitle>
@@ -59,6 +68,8 @@ const Landing_Page = ({toggle}) => {
             type="text"
             fullWidth
             variant="standard"
+            value={player1}
+            onChange={(e) => setPlayer1(e.target.value)}
             />
             <TextField 
             autoFocus
@@ -70,11 +81,13 @@ const Landing_Page = ({toggle}) => {
             type="text"
             fullWidth
             variant="standard"
+            value={player2}
+            onChange={(e) => setPlayer2(e.target.value)}
             />
           </DialogContent>
           <DialogActions>
             <Button onClick={setClickClose}>Go Back</Button>
-            <Button type="submit" onClick={toggle}>Enter Game</Button>
+            <Button type="submit">Enter Game</Button>
           </DialogActions>
         </Dialog>
       </div>
