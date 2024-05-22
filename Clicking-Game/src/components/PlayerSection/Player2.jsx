@@ -60,7 +60,7 @@ const Player2 = () => {
             <img src={isSelected ? '/images/green_light.PNG' : '/images/red_light.PNG'} alt='light' onClick={toggleClick} />
           </div>
           <div className={styles.buttons}>
-            <button className={styles.butt} onClick={handleClick} disabled={currTimer===0}> Click Me </button>
+            <button className={styles.butt} onClick={handleClick} disabled={currTimer===0 || isSelected===false}> Click Me </button>
             <button className={styles.butt} onClick={handleReset}> Reset Timer & Score </button>
           </div>
         </div>
