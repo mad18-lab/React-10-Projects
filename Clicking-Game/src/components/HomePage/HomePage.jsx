@@ -67,7 +67,7 @@ const PlayerSection = ({ playerName, setScore, currScore, setTimer, currTimer, s
           <img src={isSelected ? '/images/green_light.PNG' : '/images/red_light.PNG'} alt='light' onClick={toggleClick} />
         </div>
         <div className={styles.buttons}>
-          <button className={styles.butt} onClick={handleClick} disabled={currTimer === 0}>Click Me</button>
+          <button className={styles.butt} onClick={handleClick} disabled={isSelected === false || currTimer === 0}>Click Me</button>
           <button className={styles.butt} onClick={handleReset}>Reset Timer & Score</button>
         </div>
       </div>
@@ -111,8 +111,10 @@ const HomePage = () => {
     setOpen(true);
   }
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false);
+    }
   }
 
   const handleRedirect = () => {
