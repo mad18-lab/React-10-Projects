@@ -8,13 +8,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from '@mui/material';
-import { PlayerContext } from '../../context/PlayerContext';
+// import { PlayerContext } from '../../context/PlayerContext';
 
 const Landing_Page = () => {
   const [open, setOpen] = useState(false);
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
-  const { setPlayerNames } = useContext(PlayerContext);
+  // const { setPlayerNames } = useContext(PlayerContext);
   const navigateTo = useNavigate();
 
   const setClickOpen = () => {
@@ -27,7 +27,7 @@ const Landing_Page = () => {
 
   const setSubmit = (event) => {
     event.preventDefault();
-    setPlayerNames({ player1, player2 });   //set player names in context
+    // setPlayerNames({ player1, player2 });   //set player names in context
     localStorage.setItem("Player 1 Name: ", JSON.stringify(player1));
     localStorage.setItem("Player 2 Name: ", JSON.stringify(player2));
     navigateTo('/home');
